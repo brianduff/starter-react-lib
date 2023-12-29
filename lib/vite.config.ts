@@ -6,7 +6,9 @@ import path from 'node:path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxImportSource: "@emotion/react"
+    }),
     dts({
       insertTypesEntry: true,
     })
@@ -16,7 +18,6 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
       name: 'my-lib',
       fileName: 'my-lib',
-//      formats: [ 'es', 'umd' ],
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -24,6 +25,7 @@ export default defineConfig({
         globals: {
             react: 'React',
             'react-dom': 'ReactDOM',
+            "@emotion/react": 'emotion'
         },
       },
     }

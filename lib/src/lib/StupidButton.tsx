@@ -1,3 +1,5 @@
+import { css } from '@emotion/react'
+
 export function StupidButton() {
-  return <button>I am stupid</button>;
+  return <button css={css`color: red`}>I am stupid</button>;
 }
